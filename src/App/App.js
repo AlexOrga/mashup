@@ -12,6 +12,19 @@ class App extends Component {
     mashups: [],
   }
 
+  submitForm = (animal) => {
+    mashupRequests.postRequest(animal)
+      .then(() => {
+        mashupRequests.getRequest()
+          .then((mashups) => {
+            this.setState({mashups});
+          });
+      })
+      .catch((err) => {
+        console.error('error posting new mashup', err);
+      });
+  }
+
   componentDidMount () {
     connection();
     mashupRequests.getRequest()
