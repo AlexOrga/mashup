@@ -40,11 +40,15 @@ class App extends Component {
     return (
       <div className="App">
         <div className="col-sm-8">
-          <Mashups mashups={this.state.mashups} />
+          <Mashups
+            mashups={this.state.mashups}
+          />
         </div>
 
         <div className="col-sm-4">
-          <MashupForm />
+          <MashupForm
+            onSubmit={this.submitForm}
+          />
         </div>
       </div>
     );
